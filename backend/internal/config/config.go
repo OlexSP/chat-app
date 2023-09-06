@@ -18,7 +18,7 @@ type Config struct {
 // PostgresConfig holds the configuration values for PostgreSQL.
 type PostgresConfig struct {
 	Host     string `env:"POSTGRES_HOST" env-default:"localhost"`
-	Port     int    `env:"POSTGRES_PORT" env-default:"5432"`
+	Port     string `env:"POSTGRES_PORT" env-default:"5432"`
 	User     string `env:"POSTGRES_USER" env-default:"postgres"`
 	Password string `env:"POSTGRES_PASSWORD" env-default:"password"`
 	DBName   string `env:"POSTGRES_DB" env-default:"chat"`
