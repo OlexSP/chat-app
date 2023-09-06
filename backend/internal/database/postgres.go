@@ -9,7 +9,7 @@ import (
 )
 
 // ConnectPostgres establishes a connection to the PostgresQL database.
-func ConnectPostgres(cfg config.PostgresConfig, maxAttempts int) (pool *pgxpool.Pool, err error) {
+func ConnectPostgres(cfg *config.PostgresConfig, maxAttempts int) (pool *pgxpool.Pool, err error) {
 	connStr := fmt.Sprintf(
 		"host=%s port=%s user=%s password=%s dbname=%s",
 		cfg.Host,
