@@ -20,6 +20,14 @@ func NewUserHandler(authService *services.AuthService) *UserHandler {
 }
 
 // RegisterUser handles user registration.
+// @Summary Register a new user
+// @Description Create a new user with the provided username, password, and email
+// @Accept  json
+// @Produce  json
+// @Param user body models.UserInput true "User input"
+// @Success 200 {object} models.User
+// @Failure 400 {string} string "Invalid request body"
+// @Router /register [post]
 func (h *UserHandler) RegisterUser(w http.ResponseWriter, r *http.Request) {
 	var userInput models.UserInput
 
@@ -40,6 +48,15 @@ func (h *UserHandler) RegisterUser(w http.ResponseWriter, r *http.Request) {
 }
 
 // LoginUser handles user login.
+// @Summary Authenticate a user
+// @Description Authenticate a user with the provided username and password, and return an authentication token
+// @Accept  json
+// @Produce  json
+// @Param user body models.UserInput true "User input"
+// @Success 200 {object} map[string]string "Authentication token"
+// @Failure 400 {string} string "Invalid request body"
+// @Failure 401 {string} string "Invalid username or password"
+// @Router /login [post]
 func (h *UserHandler) LoginUser(w http.ResponseWriter, r *http.Request) {
 	var userInput models.UserInput
 
